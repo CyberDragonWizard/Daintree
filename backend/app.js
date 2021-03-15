@@ -2,29 +2,27 @@ const express = require('express');
 const app = express();
 const bodyParser = require('body-parser');
 const morgan = require('morgan');
+const cors = require('cors');
 const mongoose = require('mongoose');
 require('dotenv/config');
 
-const api = process.env.API_URL;
 const MongoURLUser = process.env.MONGO_URL_USER
 
+//Middleware
 app.use(bodyParser.json());
 app.use(morgan('tiny'));
+app.use(cors());
 
-app.get(`${api}/products`, (req, res) => {
-    const product = {
-        id: 1,
-        name: 'dresser',
-        image: 'some_url',
-    }
-    res.send(product);
-})
+//Routes
+const productsRouter = require('./routes/products');
+const categoriesRouter = require('./routes/categories');
+const ordersRouter = require('./routes/orders');
+const usersRouter = require('./routes/users');
 
-app.post(`${api}/products`, (req, res) => {
-    const newProduct = req.body;
-    console.log(newProduct);
-    res.send(newProduct);
-})
+app.use('/api/v1/products', productsRouter);
+app.use('/api/v1/categories', categoriesRouter);
+app.use('/api/v1/orders', ordersRouter);
+app.use('/api/v1/users', usersRouter)
 
 mongoose.connect(MongoURLUser, {useNewUrlParser: true, useUnifiedTopology: true, dbName: 'daintree-database'})
 .then(() => {
