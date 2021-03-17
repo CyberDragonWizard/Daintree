@@ -17,17 +17,17 @@ const productSchema = mongoose.Schema ({
         type: String,
         default: '',
     },
-    images: [{
+    images: {
         type: String,
-    }],
-    brand: [{
+    },
+    brand: {
         type: String,
         default: '',
-    }],
-    price: [{
+    },
+    price: {
         type: Number,
         default: 0,
-    }],
+    },
     category: {
         type: mongoose.Schema.Types.ObjectId,
         ref: 'Category',
@@ -52,5 +52,13 @@ const productSchema = mongoose.Schema ({
         default: Date.now,
     }
 });
+
+productSchema.virtual('id').get(function () {
+    return this._id.toHexString();
+})
+
+productSchema.set('toJSON', {
+    virtuals: true,
+})
 
 exports.Product = mongoose.model('Product', productSchema);
