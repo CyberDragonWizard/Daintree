@@ -1,5 +1,3 @@
-
-
 const errorhandler = (err, req, res, next) => {
 
     // JWT authentication error

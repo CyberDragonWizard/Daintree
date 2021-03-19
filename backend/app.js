@@ -8,17 +8,17 @@ const errorhandler = require('./helpers/error-handler')
 const mongoose = require('mongoose');
 require('dotenv/config');
 
-const MongoURLUser = process.env.MONGO_URL_USER
+const MongoURLUser = process.env.MONGO_URL_ADMIN
+
+//CORS
+app.use(cors());
+app.options('*', cors());
 
 //Middleware
 app.use(bodyParser.json());
 app.use(morgan('tiny'));
 app.use(authJwt());
 app.use(errorhandler);
-
-//CORS
-app.use(cors());
-app.options('*', cors());
 
 //Routes
 const productsRouter = require('./routes/products');
