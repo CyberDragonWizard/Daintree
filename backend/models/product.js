@@ -17,9 +17,9 @@ const productSchema = mongoose.Schema ({
         type: String,
         default: '',
     },
-    images: {
-        type: String,
-    },
+    images: [{
+        type: String
+    }],
     brand: {
         type: String,
         default: '',
@@ -43,6 +43,10 @@ const productSchema = mongoose.Schema ({
         type: Number,
         default: 0,
     },
+    numReviews: {
+        type: Number,
+        default: 0,
+    },
     isFeatured: {
         type: Boolean,
         default: Date.now,
@@ -53,12 +57,10 @@ const productSchema = mongoose.Schema ({
     }
 });
 
-productSchema.virtual('id').get(function () {
-    return this._id.toHexString();
-})
-
-productSchema.set('toJSON', {
-    virtuals: true,
-})
+productSchema.method('toJSON', function(){
+    const { __v, ...object } = this.toObject();
+    const { _id:id, ...result } = object;
+    return { ...result, id };
+});
 
 exports.Product = mongoose.model('Product', productSchema);
