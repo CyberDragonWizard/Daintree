@@ -12,7 +12,7 @@ const ProductCard = (props) => {
             <Image 
             style={styles.image}
             resizeMode='contain'
-            source={{uri: image ? image : 'Image Unavailable'}}
+            source={{uri: image ? image : 'https://i.postimg.cc/bNV62Gg8/kisspng-paper-bag-shopping-bag-shopping-bag-5a73715a6db5c0-7849378915175150984494.png'}}
             />
             <View style={styles.card}/>
             <Text style={styles.title}>
@@ -23,7 +23,7 @@ const ProductCard = (props) => {
 
             { countInStock > 0 ? (
                 <View style ={{ marginBottom: 60}}>
-                    <Button title={'Add'} color={'green'} />
+                    <Button title={'Add'} color={'#3a6351'} />
                 </View>
             ) : <Text style={{ marginTop: 20}}>Currently Unavailable</Text>}
         </View>
@@ -64,7 +64,7 @@ const styles = StyleSheet.create({
     },
     price: {
         fontSize: 20,
-        color: 'orange',
+        color: '#e48257',
         marginTop: 10,
     },
 })

@@ -2,7 +2,7 @@
     "_id": {
       "$oid": "5f15d8852a025143f9593a7c"
     },
-    "image": "https://www.freepik.com/free-vector/abstract-colorful-wave-transparent-stylish_5182289.htm#page=1&query=png&position=12",
+    "image": "https://i.postimg.cc/mZHyKYCW/kisspng-cristiano-ronaldo-real-madrid-c-f-uefa-euro-2012-cr7-5b225b99bbb0e1-2496907715289783297688.png",
     "brand": "PS3",
     "price": 250,
     "rating": 1,
@@ -19,7 +19,7 @@
     "_id": {
       "$oid": "5f15d92ee520d44421ed8e9b"
     },
-    "image": "https://www.freepik.com/free-vector/abstract-colorful-wave-transparent-stylish_5182289.htm#page=1&query=png&position=12",
+    "image": "https://i.postimg.cc/FKZvHX00/5a1ccb9523e3c9-189263601511836565147.png",
     "brand": "IKEA",
     "price": 350.9,
     "rating": 5,
@@ -36,7 +36,7 @@
     "_id": {
       "$oid": "5f15d964e520d44421ed8e9c"
     },
-    "image": "http://www.freeimageslive.com/galleries/objects/general/pics/objects00445.jpg",
+    "image": "https://i.postimg.cc/bNV62Gg8/kisspng-paper-bag-shopping-bag-shopping-bag-5a73715a6db5c0-7849378915175150984494.png",
     "brand": "OBI",
     "price": 1350.9,
     "rating": 5,
@@ -53,13 +53,13 @@
     "_id": {
       "$oid": "5f15d9b3e520d44421ed8e9d"
     },
-    "image": "http://www.freeimageslive.com/galleries/objects/general/pics/objects00290.jpg",
+    "image": "https://i.postimg.cc/fRQjMGzz/kisspng-lawn-mowers-rotary-mower-dalladora-lawn-mower-5adf9d2dd16664-1535738215246042058577.png",
     "brand": "OBI",
     "price": 490.9,
     "rating": 5,
     "numReviews": 0,
     "isFeatured": true,
-    "name": "Grass Cut Machine",
+    "name": "Lawn Mower",
     "description": "Grass Cut Machine for garden",
     "category": {
       "$oid": "5f15d5b7cb4a6642bddc0fe8"
@@ -70,7 +70,7 @@
     "_id": {
       "$oid": "5f15da13e520d44421ed8e9e"
     },
-    "image": "http://www.freeimageslive.com/galleries/objects/general/pics/objects00290.jpg",
+    "image": "https://i.postimg.cc/Hn5dHczk/kisspng-table-chair-couch-furniture-chaise-longue-striped-sofa-5a706a5c911776-6007326115173167005943.png",
     "brand": "Mobilix",
     "price": 1000,
     "rating": 5,

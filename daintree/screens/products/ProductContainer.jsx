@@ -8,26 +8,35 @@ const data = require('../../assets/data/products.json')
 const ProductContainer = () => {
 
     const [products, setProducts] = useState([]);
+    const [productsFiltered, setProductsFiltered] = useState([]);
+    const [focus, setFocus] = useState();
 
     useEffect(() => {
         setProducts(data);
+        setProductsFiltered(data);
+        setFocus(false);
 
         return () => {
           setProducts([])
         }
     }, [])
+
+    const searchProduct = (text) => {
+        setProductsFiltered(
+            products.filter((item) => item.name.toLowerCase().includes(text.toLowerCase()))
+        )
+    }
   
     return (
         
         <Container>
-            <Header searchBar rounded>
+            <Header searchBar rounded style={{ backgroundColor: '#e48257'}} androidStatusBarColor='#e48257'>
                 <Item>
-                    <Icon name='ios-search'/>
+                    <Icon name='ios-search' style={{ color: '#393232'}}/>
                     <Input placeholder='search' />
                 </Item>
             </Header>
             <View style={styles.container}>
-                <Text>Product Container</Text>
                     <View style={styles.listContainer}>
                     <FlatList
                     numColumns={2} 

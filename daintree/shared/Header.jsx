@@ -21,7 +21,7 @@ const Header = () => {
 const styles = StyleSheet.create({
     header: {
       width: '100%',
-      backgroundColor: '#f5f5f5',
+      backgroundColor: '#ffffff',
     },
     image: {
       height: 55,
