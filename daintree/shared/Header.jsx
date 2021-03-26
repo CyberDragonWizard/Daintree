@@ -21,20 +21,18 @@ const Header = () => {
 const styles = StyleSheet.create({
     header: {
       width: '100%',
-      height: 70,
       backgroundColor: '#f5f5f5',
     },
     image: {
-      height: 65,
+      height: 55,
       position: 'absolute',
-      marginLeft: 6,
-      marginTop: 4,
+      marginTop: 8,
     },
     text: {
-      height: 40,
-      marginTop: 22,
+      height: 32,
+      marginTop: 24,
       marginBottom: 7,
-      marginLeft: 18 ,
+      marginLeft: 26,
     },
   });
 

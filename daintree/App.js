@@ -9,7 +9,7 @@ import Header from './shared/Header'
 export default function App() {
   return (
     <View>
-      <Header />
+      {/* <Header /> */}
       <ProductContainer/>
     </View>
   );
