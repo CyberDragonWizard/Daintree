@@ -1,7 +1,11 @@
 import React, { useState, useEffect } from 'react';
 import { View, StyleSheet, ActivityIndicator, FlatList } from 'react-native';
 import { Container, Header, Icon, Item, Input, Text } from 'native-base';
+
+//Screens
+import Banner from '../../shared/Banner'
 import ProductList from './ProductList';
+import SearchedProduct from './SearchedProducts';
 
 const data = require('../../assets/data/products.json')
 
@@ -17,14 +21,24 @@ const ProductContainer = () => {
         setFocus(false);
 
         return () => {
-          setProducts([])
+          setProducts([]);
+          setProductsFiltered([]);
+          setFocus();
         }
     }, [])
 
     const searchProduct = (text) => {
         setProductsFiltered(
-            products.filter((item) => item.name.toLowerCase().includes(text.toLowerCase()))
+            products.filter((product) => product.name.toLowerCase().includes(text.toLowerCase()))
         )
+    }
+
+    const openList = () => {
+      setFocus(true);
+    }
+
+    const onBlur = () => {
+      setFocus(false)
     }
   
     return (
@@ -33,21 +47,35 @@ const ProductContainer = () => {
             <Header searchBar rounded style={{ backgroundColor: '#e48257'}} androidStatusBarColor='#e48257'>
                 <Item>
                     <Icon name='ios-search' style={{ color: '#393232'}}/>
-                    <Input placeholder='search' />
+                    <Input 
+                    placeholder='search'
+                    onFocus={openList}
+                    onChangeText={(text) => searchProduct(text)}
+                     />
+                     {focus == true ? (
+                         <Icon onPress={onBlur} name='ios-close' />
+                     ) : null}
                 </Item>
             </Header>
+            {focus == true ? (
+                <SearchedProduct productsFiltered={productsFiltered}/>
+            ) : (
             <View style={styles.container}>
-                    <View style={styles.listContainer}>
-                    <FlatList
-                    numColumns={2} 
-                    data={products}
-                    renderItem={({item}) => <ProductList
-                    key={item.brand}
-                    item={item}/>}
-                    keyExtractor={item => item.brand} 
-                    />
-                    </View>
+                <View>
+                    <Banner />
+                </View>
+                <View style={styles.listContainer}>
+                 <FlatList
+                numColumns={2} 
+                data={products}
+                renderItem={({item}) => <ProductList
+                key={item.brand}
+                item={item}/>}
+                keyExtractor={item => item.brand} 
+                />
+                </View>
             </View>
+            )}
         </Container>
     )
 }
@@ -55,19 +83,15 @@ const ProductContainer = () => {
 const styles = StyleSheet.create({
     container: {
       flexWrap: "wrap",
-      backgroundColor: "gainsboro",
+      backgroundColor: "white",
     },
     listContainer: {
       flex: 1,
       flexDirection: "row",
       alignItems: "flex-start",
       flexWrap: "wrap",
-      backgroundColor: "gainsboro",
+      backgroundColor: "#f5f5f5",
     },
-    center: {
-        justifyContent: 'center',
-        alignItems: 'center'
-    }
   });
 
 export default ProductContainer;

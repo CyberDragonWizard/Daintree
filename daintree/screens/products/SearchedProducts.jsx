@@ -1,23 +1,26 @@
 import React from 'react';
-import { View, StyleSheet, } from 'react-rative';
-import { Content, Left, Body, ListenItem, Thumbnail, Text } from 'native-base';
+import { View, StyleSheet, Dimensions } from 'react-native';
+import { Content, Left, Body, ListItem, Thumbnail, Text } from 'native-base';
+
+const { width } = Dimensions.get('window')
 
 const SearchedProduct = (props) => {
 
     const { productsFiltered } = props;
 
     return (
-        <Content>
+        <Content style={{ width, }}>
             {productsFiltered.length > 0 ? (
                 productsFiltered.map((item) => (
                     <ListItem
                     
                     key={item.id}
                     avatar
-                    source={{uri: image ? image : 'https://i.postimg.cc/bNV62Gg8/kisspng-paper-bag-shopping-bag-shopping-bag-5a73715a6db5c0-7849378915175150984494.png'}}
                     >
                         <Left>
-                            <Thumbnail />
+                            <Thumbnail 
+                            source={{uri: item.image ? item.image : 'https://i.postimg.cc/bNV62Gg8/kisspng-paper-bag-shopping-bag-shopping-bag-5a73715a6db5c0-7849378915175150984494.png'}}
+                            />
                         </Left>
                         <Body>
                             <Text>{item.name}</Text>
