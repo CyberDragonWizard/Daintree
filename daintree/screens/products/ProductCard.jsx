@@ -1,7 +1,7 @@
 import React from 'react';
 import { StyleSheet, View, Dimensions, Image, Text, Button} from 'react-native';
 
-const { width } = Dimensions.get('window');
+let { width } = Dimensions.get('window');
 
 const ProductCard = (props) => {
 

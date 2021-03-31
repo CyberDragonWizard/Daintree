@@ -13,7 +13,6 @@ const SearchedProduct = (props) => {
             {productsFiltered.length > 0 ? (
                 productsFiltered.map((item) => (
                     <ListItem
-                    
                     key={item.id}
                     avatar
                     >

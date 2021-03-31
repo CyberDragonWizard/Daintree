@@ -2,7 +2,7 @@ import React from 'react';
 import ProductCard from './ProductCard';
 import { TouchableOpacity, View, Dimensions } from 'react-native';
 
-const { width } = Dimensions.get('window')
+let { width } = Dimensions.get('window')
 
 const ProductList = (props) => {
 
