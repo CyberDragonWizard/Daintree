@@ -1,11 +1,20 @@
 import React from 'react';
 import { StyleSheet, View, Dimensions, Image, Text, Button} from 'react-native';
+import { useFonts } from 'expo-font';
+import { connect } from 'react-redux';
+import * as actions from '../../Redux/actions/CartActions';
 
 let { width } = Dimensions.get('window');
 
 const ProductCard = (props) => {
 
     const { name, price, image, countInStock } = props;
+
+    const [loaded] = useFonts({
+        Montserrat: require('../../assets/fonts/Montserrat-Regular.ttf'),
+      });
+
+    if (!loaded) return null;
 
     return (
         <View style={styles.container}>
@@ -23,12 +32,25 @@ const ProductCard = (props) => {
 
             { countInStock > 0 ? (
                 <View style ={{ marginBottom: 60}}>
-                    <Button title={'Add'} color={'#3a6351'} />
+                    <Button 
+                    title={'Add'} 
+                    color={'#3a6351'}
+                    onPress={() => {
+                        props.addItemToCart(props)
+                    }}
+                     />
                 </View>
             ) : <Text style={{ marginTop: 20}}>Currently Unavailable</Text>}
         </View>
     )
 
+}
+
+const mapDispatchToProps = (dispatch) => {
+    return {
+        addItemToCart: (product) => 
+            dispatch(actions.addToCart({quantity: 1, product}))
+    }
 }
 
 const styles = StyleSheet.create({
@@ -58,15 +80,16 @@ const styles = StyleSheet.create({
         width: width / 2 - 20 - 10,
     },
     title: {
-        fontWeight: 'bold',
         fontSize: 14,
         textAlign: 'center',
+        fontFamily: 'Montserrat',
     },
     price: {
         fontSize: 20,
         color: '#e48257',
         marginTop: 10,
+        fontFamily: 'Montserrat',
     },
 })
 
-export default ProductCard;
+export default connect(null, mapDispatchToProps)(ProductCard);

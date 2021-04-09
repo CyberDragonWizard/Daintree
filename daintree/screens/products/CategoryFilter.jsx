@@ -1,8 +1,15 @@
 import React from 'react';
 import { StyleSheet, TouchableOpacity, ScrollView } from 'react-native';
 import { ListItem, Badge, Text } from 'native-base';
+import { useFonts } from 'expo-font';
 
 const CategoryFilter = (props) => {
+
+    const [loaded] = useFonts({
+        Montserrat: require('../../assets/fonts/Montserrat-Regular.ttf'),
+      });
+
+    if (!loaded) return null;
 
     return (
         <ScrollView
@@ -39,7 +46,7 @@ const CategoryFilter = (props) => {
                             props.active == props.categories.indexOf(category) ? styles.active : styles.inactive
                         ]}
                         >
-                            <Text style={{ color: 'white' }}>{category.name}</Text>
+                            <Text style={{ color: 'white', fontFamily: 'Montserrat', fontSize: 14 }}>{category.name}</Text>
                         </Badge>
                     </TouchableOpacity>
                 ))}

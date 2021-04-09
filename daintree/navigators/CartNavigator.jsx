@@ -1,25 +1,25 @@
 import React from 'react';
 import { createStackNavigator } from '@react-navigation/stack';
 
-import ProductContainer from '../screens/products/ProductContainer';
-import SingleProduct from '../screens/products/SingleProduct';
+import Cart from '../screens/cart/Cart';
+import Checkout from '../screens/cart/Checkout';
 
 const Stack = createStackNavigator();
 
-const HomeNavigator = () => {
+const CartNavigator = () => {
   
     return (
         <Stack.Navigator>
             <Stack.Screen
-             name='Home'
-             component={ProductContainer}
+             name='Cart'
+             component={Cart}
              options={{
                  headerShown: false,
              }}
             />
             <Stack.Screen
-             name='Product Detail'
-             component={SingleProduct}
+             name='Cart Checkout'
+             component={Checkout}
              options={{
                  headerShown: false,
              }}
@@ -28,4 +28,4 @@ const HomeNavigator = () => {
     )
 }
 
-export default HomeNavigator;
+export default CartNavigator;
