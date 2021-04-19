@@ -3,6 +3,9 @@ import { Image, View, StyleSheet, Text, ScrollView, Button } from 'react-native'
 import { Left, Right, Container, H1 } from 'native-base';
 import { useFonts } from 'expo-font';
 
+import { connect } from 'react-redux';
+import * as actions from '../../Redux/actions/CartActions';
+
 const SingleProduct = (props) => {
     
     const [item, setItem] = useState(props.route.params.item);
