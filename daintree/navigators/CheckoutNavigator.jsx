@@ -6,9 +6,9 @@ import Checkout from '../screens/cart/checkout/Checkout';
 import Payment from '../screens/cart/checkout/Payment';
 import Confirm from '../screens/cart/checkout/Confirm';
 
-const Tab = createMaterialTopTabNavigator;
+const Tab = createMaterialTopTabNavigator();
 
-const Tabs = () => {
+const Tabs= () => {
     return (
         <Tab.Navigator>
             <Tab.Screen name='Shipping' component={Checkout} />
