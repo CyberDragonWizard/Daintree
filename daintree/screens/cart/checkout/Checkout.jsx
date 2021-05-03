@@ -79,13 +79,14 @@ const Checkout = (props) => {
         placeholder={'Zip'}
         name={'zip'}
         value={zip}
+        keyboardType={"numeric"}
         onChangeText={(text) => setZip(text)}
         />
         <Item picker>
           <Picker
             mode='dropdown'
             iosIcon={<Icon name='arrow-down' color={'#4e9ef5'} />}
-            style={{ width: undefined }}
+            style={{ width: undefined, height: 40, backgroundColor: 'white' }}
             selectedValue={country}
             placeholder='Select Your Country'
             placeholderStyle={{ color: '#4e9ef5'}}
