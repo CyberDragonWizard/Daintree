@@ -6,7 +6,7 @@ import CheckoutNavigator from './CheckoutNavigator';
 
 const Stack = createStackNavigator();
 
-const CartNavigator = () => {
+function CartStack() {
   
     return (
         <Stack.Navigator>
@@ -28,4 +28,6 @@ const CartNavigator = () => {
     )
 }
 
-export default CartNavigator;
+export default function CartNavigator() {
+    return <CartStack />
+}

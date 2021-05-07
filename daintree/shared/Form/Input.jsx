@@ -1,6 +1,7 @@
 import React from 'react';
 import { TextInput, StyleSheet } from 'react-native';
 
+
 const Input = (props) => {
     return (
         <TextInput
@@ -10,13 +11,13 @@ const Input = (props) => {
         id={props.id}
         value={props.value}
         autoCorrect={props.autoCorrect}
+        onChangeText={props.onChangeText}
         onFocus={props.onFocus}
         secureTextEntry={props.secureTextEntry}
         keyboardType={props.keyboardType}
         >
-
         </TextInput>
-    )
+    );
 }
 
 const styles = StyleSheet.create({

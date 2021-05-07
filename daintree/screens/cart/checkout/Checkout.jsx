@@ -12,20 +12,20 @@ const countries = require('../../../assets/data/countries.json')
 
 const Checkout = (props) => {
 
-  const [ orderItems, setOrderItems] = useState();
-  const [ address, setAddress] = useState();
-  const [ address2, setAddress2] = useState();
-  const [ city, setCity] = useState();
-  const [ zip, setZip] = useState();
-  const [ country, setCountry] = useState();
-  const [ phone, setPhone] = useState();
+  const [orderItems, setOrderItems] = useState();
+  const [address, setAddress] = useState();
+  const [address2, setAddress2] = useState();
+  const [city, setCity] = useState();
+  const [zip, setZip] = useState();
+  const [country, setCountry] = useState();
+  const [phone, setPhone] = useState();
 
   useEffect(() => {
-      setOrderItems(props.cartItems)
+    setOrderItems(props.cartItems)
 
-      return () => {
-        setOrderItems();
-      }
+    return () => {
+      setOrderItems();
+    }
   }, [])
 
   const checkOut = () => {
@@ -40,7 +40,7 @@ const Checkout = (props) => {
       zip,
     }
 
-    props.navigation.navigate('Payment', {order: order})
+    props.navigation.navigate("Payment", { order: order })
   }
 
   return (
@@ -49,38 +49,38 @@ const Checkout = (props) => {
       extraHeight={200}
       enableOnAndroid={true}
     >
-      <FormContainer title={'Shipping Address'}>
-        <Input 
-        placeholder={'Phone'}
-        name={'phone'}
-        value={phone}
-        keyboardType={'numeric'}
-        onChangeText={(text) => setPhone(text)}
+      <FormContainer title={"Shipping Address"}>
+        <Input
+          placeholder={"Phone"}
+          name={"phone"}
+          value={phone}
+          keyboardType={"numeric"}
+          onChangeText={(text) => setPhone(text)}
         />
-        <Input 
-        placeholder={'Shipping Address 1'}
-        name={'ShippingAddress1'}
-        value={address}
-        onChangeText={(text) => setAddress(text)}
+        <Input
+          placeholder={"Shipping Address 1"}
+          name={"ShippingAddress1"}
+          value={address}
+          onChangeText={(text) => setAddress(text)}
         />
-        <Input 
-        placeholder={'Shipping Address 2'}
-        name={'ShippingAddress2'}
-        value={address2}
-        onChangeText={(text) => setAddress2(text)}
+        <Input
+          placeholder={"Shipping Address 2"}
+          name={"ShippingAddress2"}
+          value={address2}
+          onChangeText={(text) => setAddress2(text)}
         />
-        <Input 
-        placeholder={'City'}
-        name={'city'}
-        value={city}
-        onChangeText={(text) => setCity(text)}
+        <Input
+          placeholder={"City"}
+          name={"city"}
+          value={city}
+          onChangeText={(text) => setCity(text)}
         />
-        <Input 
-        placeholder={'Zip'}
-        name={'zip'}
-        value={zip}
-        keyboardType={"numeric"}
-        onChangeText={(text) => setZip(text)}
+        <Input
+          placeholder={"Zip Code"}
+          name={"zip"}
+          value={zip}
+          keyboardType={"numeric"}
+          onChangeText={(text) => setZip(text)}
         />
         <Item picker>
           <Picker
@@ -89,21 +89,21 @@ const Checkout = (props) => {
             style={{ width: undefined, height: 40, backgroundColor: 'white' }}
             selectedValue={country}
             placeholder='Select Your Country'
-            placeholderStyle={{ color: '#4e9ef5'}}
+            placeholderStyle={{ color: '#4e9ef5' }}
             placeholderIconColor='#4e9ef5'
             onValueChange={(e) => setCountry(e)}
           >
-              {countries.map((country) => {
-                return <Picker.Item 
-                        key={country.code} 
-                        label={country.name}
-                        value={country.name}
-                        />
-              })}
+            {countries.map((country) => {
+              return <Picker.Item
+                key={country.code}
+                label={country.name}
+                value={country.name}
+              />
+            })}
           </Picker>
         </Item>
         <View style={{ width: '80%', alignItems: 'center' }}>
-              <Button title='Confirm' onPress={() => checkOut()}/>
+          <Button title='Confirm' onPress={() => checkOut()} />
         </View>
       </FormContainer>
     </KeyboardAwareScrollView>
