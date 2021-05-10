@@ -40,6 +40,13 @@ mongoose.connect(MongoURLUser, {useNewUrlParser: true, useUnifiedTopology: true,
     console.log(err)
 })
 
-app.listen(3000, () => {
-    console.log('Server is successfully running on Localhost:3000');
+// Development
+// app.listen(3000, () => {
+//     console.log('Server is successfully running on Localhost:3000');
+// })
+
+// Production 
+const server = app.listen(process.env.PORT || 3000, () => {
+    const port = server.address().port;
+    console.log('Express is working on port ' + port)
 })

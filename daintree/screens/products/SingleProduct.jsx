@@ -39,7 +39,11 @@ const SingleProduct = (props) => {
                     <Text style={styles.price}>$ {item.price}</Text>
                 </Left>
                 <Right>
-                    <Button title='Add' titleStyle={{ fontFamily: 'Montserrat', fontSize: 16 }} color={'#3a6351'}/>
+                    <Button 
+                    title='Add' 
+                    titleStyle={{ fontFamily: 'Montserrat', fontSize: 16 }} 
+                    color={'#3a6351'}
+                    />
                 </Right>
             </View>
         </Container>
